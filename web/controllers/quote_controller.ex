@@ -31,12 +31,16 @@ defmodule ApiExample.QuoteController do
 					|> json(%{message: "#{symbol} not found"})
 			end
 
-			low = parse(data) |> xpath(~x[//Low/text()]s)
-			name = parse(data) |> xpath(~x[//Name/text()]s)
-			
+			resp_obj = parse(data)
+				|> xmap(
+					symbol: ~x[//Symbol/text()]s,
+					name: ~x[//Name/text()]s,
+					high: ~x[//High/text()]s,
+					low: ~x[//Low/text()]s
+					)
 			conn
 				|> put_status(200) 
-				|> json(%{symbol: symbol, high: high, low: low, name: name})
+				|> json(resp_obj)
 		end
 
 		conn
