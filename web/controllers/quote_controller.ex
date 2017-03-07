@@ -35,8 +35,8 @@ defmodule ApiExample.QuoteController do
 				|> xmap(
 					symbol: ~x[//Symbol/text()]s,
 					name: ~x[//Name/text()]s,
-					high: ~x[//High/text()]s,
-					low: ~x[//Low/text()]s
+					high: ~x[//High/text()]f,
+					low: ~x[//Low/text()]f
 					)
 			conn
 				|> put_status(200) 
