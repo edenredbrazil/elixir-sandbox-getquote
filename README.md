@@ -1,8 +1,9 @@
 # Teste API para Stock Symbol Quote
 
-Teste com Phoenix (Elixir) para servir uma API REST trazendo cotação da bolsa via SOAP usando http://www.webservicex.com/stockquote.asmx?WSDL
+Teste com Phoenix (Elixir) para servir uma API REST trazendo cotação da bolsa via SOAP de http://www.webservicex.com/stockquote.asmx?WSDL
 
 exemplo de chamada para a API
+
 ```curl -v -XGET http://localhost:4000/api/v1/quote?symbol=GOOGL```
 
 To start your Phoenix app:
