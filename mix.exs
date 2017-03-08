@@ -25,7 +25,8 @@ defmodule ApiExample.Mixfile do
 		 	:logger,
 		 	:gettext,
 			:inets,
-		 	:detergentex
+		 	:detergentex,
+			:httpoison
 		 	]
 		 ]
 	end
@@ -46,6 +47,7 @@ defmodule ApiExample.Mixfile do
 	{:cowboy, "~> 1.0"},
 	{:erlsom, github: "willemdj/erlsom"},
 	{:detergentex, "0.0.5"},
-	{:sweet_xml, "0.6.5"}]
+	{:sweet_xml, "0.6.5"},
+	{:httpoison, "~> 0.11.1"}]
 	end
 end

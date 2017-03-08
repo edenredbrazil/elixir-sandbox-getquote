@@ -24,5 +24,6 @@ defmodule ApiExample.Router do
 	scope "/api/v1", ApiExample do
 		pipe_through :api
 		get "/quote", QuoteController, :index
+    get "/geo/:ip/location", GeoController, :index
 	end
 end

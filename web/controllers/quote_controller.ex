@@ -27,24 +27,24 @@ defmodule ApiExample.QuoteController do
 
 			if high == "N/A" do
 				conn
-					|> put_status(404)
-					|> json(%{message: "#{symbol} not found"})
+				|> put_status(404)
+				|> json(%{message: "#{symbol} not found"})
 			end
 
 			resp_obj = parse(data)
-				|> xmap(
-					symbol: ~x[//Symbol/text()]s,
-					name: ~x[//Name/text()]s,
-					high: ~x[//High/text()]f,
-					low: ~x[//Low/text()]f
-					)
+			|> xmap(
+				symbol: ~x[//Symbol/text()]s,
+				name: ~x[//Name/text()]s,
+				high: ~x[//High/text()]f,
+				low: ~x[//Low/text()]f)
+			
 			conn
-				|> put_status(200) 
-				|> json(resp_obj)
+			|> put_status(200) 
+			|> json(resp_obj)
 		end
 
 		conn
-			|> put_status(400)
-			|> json(%{message: "Bad request: you must query 'symbol'"})
+		|> put_status(400)
+		|> json(%{message: "Bad request: you must query 'symbol'"})
   end
 end
